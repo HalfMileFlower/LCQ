@@ -44,3 +44,5 @@ class Solution {
         return res;
     }
 }
+
+// Notes: remember to eliminate the duplication of i, and that of j and/or k in every condition statement !
