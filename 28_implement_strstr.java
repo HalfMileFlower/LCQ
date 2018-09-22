@@ -30,3 +30,53 @@ class Solution {
         return -1;
     }
 }
+
+// Rabin Karp
+class Solution {
+    
+    static int BASE = 1000000;
+    public int strStr(String haystack, String needle) {
+        
+        int hLength = haystack.length();
+        int nLength = needle.length();
+        if (haystack == null || hLength < nLength) {
+            return -1;
+        }
+        
+        if (needle == null || needle.length() == 0) {
+            return 0;
+        }
+        
+        int power = 1;
+        for (int i = 0; i < nLength; i++) {
+            power = (power * 31) % BASE;
+        }
+        
+        int needleCode = 0;
+        int targetCode = 0;
+        for (int i = 0; i < nLength; i++) {
+            needleCode = (needle.charAt(i) + needleCode * 31) % BASE;
+        }
+        
+        for (int j = 0; j < hLength; j++) {
+            targetCode = (haystack.charAt(j) + targetCode * 31) % BASE;
+            if (j < nLength - 1) {
+                continue;
+            }
+            
+            if (j > nLength - 1) {
+                targetCode = targetCode - (power * haystack.charAt(j - nLength)) % BASE;
+                if (targetCode < 0) {
+                    targetCode += BASE;
+                }
+            }
+            
+            if (targetCode == needleCode) {
+                if (haystack.substring(j - nLength + 1, j + 1).equals(needle)) {
+                    return j - nLength + 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
