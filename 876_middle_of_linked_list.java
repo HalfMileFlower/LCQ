@@ -20,4 +20,5 @@ class Solution {
     }
 }
 
-// Notes: quick != null && quick.next != null.
+// Notes: quick != null && quick.next != null.  
+// Also, pay attention to the definition of middle, which one is required to be return (first or second middle)
