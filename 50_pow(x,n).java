@@ -24,3 +24,24 @@ class Solution {
     }
 }
 
+// Recursive Solution
+class Solution {
+    public double myPow(double x, int n) {
+        if (n == 0) {
+            return 1.0;
+        }
+        
+        long pow = n;
+        if (pow < 0) {
+            x = 1 / x;
+            pow = -pow;
+        }
+        
+        double product = myPow(x, (int)(pow / 2));
+        if (pow % 2 == 0) {
+            return product * product;
+        }
+        
+        return x * product * product;
+    }
+}
