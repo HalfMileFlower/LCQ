@@ -20,3 +20,4 @@ class Solution {
 }
 
 // Notes: Remember this condition: the price keeps decreasing -- cannot return negative values!
+// TC: O(n) SC: O(1)
