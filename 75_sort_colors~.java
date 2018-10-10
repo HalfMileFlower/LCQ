@@ -31,3 +31,4 @@ class Solution {
 }
 
 // Notes: use index to traverse the array, one pointer for 0s, the other for 2s.
+// TC: O(n) SC: O(1)

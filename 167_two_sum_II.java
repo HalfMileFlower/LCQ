@@ -17,3 +17,4 @@ class Solution {
 }
 
 // Notes: Remember to check the numbers requires to be returned, whether (index) or (index + 1) ! 
+// TC: O(n) SC: O(1)

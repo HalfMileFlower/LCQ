@@ -43,3 +43,4 @@ class Solution {
 // left <= right (from quick sort), if left < right, then stack overflow, an example is [3, 2, 1, 5, 6, 4] -> 2   =>  [6, 5] -> 2 repeating
 // start + k - 1 <= right, determine which side, remember here "start + k - 1"
 // if lies in the right part, exclude the first (left - start) elements
+// TC: O(n), SC: O(1)
