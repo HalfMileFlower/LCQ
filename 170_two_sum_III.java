@@ -32,4 +32,6 @@ public class TwoSum {
     }
 }
 
-// Notes: handling for elements added more than once!
+// Notes: handling for elements added more than once: record frequency
+// In "find", Don't return false until the loop goes over!
+// TC: add: O(1), find: O(n)
