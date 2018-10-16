@@ -54,3 +54,37 @@ class Solution {
 // Notes: make a addLayer helper function to add according to depth
 // element.getList
 // TC: O(n) n is the numbers in the list, including all layers, SC: O(1)
+
+// Iterative solution
+class Solution {
+    public int depthSum(List<NestedInteger> nestedList) {
+        if (nestedList == null || nestedList.size() == 0) {
+            return 0;
+        }
+        
+        Queue<NestedInteger> queue = new LinkedList<>(nestedList);
+        int depth = 0;
+        int result = 0;
+        
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            depth++;
+            for (int i = 0; i < size; i++) {
+                NestedInteger current = queue.poll();
+                if (current.isInteger()) {
+                    result += current.getInteger() * depth;
+                } else {
+                    for (NestedInteger element : current.getList()) {
+                        queue.offer(element);
+                    }
+                }
+            }
+        }
+        
+        return result;
+    }
+}
+
+// Notes: use a queue to store the nestedIntegers
+// if the current polled nestedInteger is not a integer, offer all its elements to the end of queue
+// TC: O(n) SC: O(n) n is the number of integers
