@@ -37,4 +37,4 @@ class Solution {
 
 // Notes: path = (root + leftPath) + (root + rightPath)
 // if leaf, result.add("" + root.val)
-// TC: 
+// TC: O(nlogn) SC: O(n) 
