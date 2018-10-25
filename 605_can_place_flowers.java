@@ -30,3 +30,24 @@ class Solution {
 // Notes: conner case - flowerbed.length == 1
 // i = 0, i > 0, i = flowerbed.length - 2(if the last position - flower.length - 1 can plant)
 // TC: O(n) SC: O(1)
+
+// More Beautiful Solution
+class Solution {
+    public boolean canPlaceFlowers(int[] flowerbed, int n) {
+        int sum = 0;
+        
+        int len = flowerbed.length;
+        for (int i = 0; i < len && sum < n; i++) {
+            if (flowerbed[i] == 0) {
+                int next = (i == flowerbed.length - 1 ? 0 : flowerbed[i + 1]);
+                int prev = (i == 0 ? 0 : flowerbed[i - 1]);
+                if (next == 0 && prev == 0) {
+                    flowerbed[i] = 1;
+                    sum++;
+                }
+            }
+        }
+        
+        return sum == n;
+    }
+}
