@@ -51,3 +51,42 @@ class Solution {
  *  });
  */
 // TC: O(nlogn)(PQ offer O(logn), poll O(1))  SC: O(n)
+
+
+// Two Arrays Solutions
+class Solution {
+    public int minMeetingRooms(Interval[] intervals) {
+        if (intervals == null || intervals.length == 0) {
+            return 0;
+        }
+        
+        int len = intervals.length;
+        int[] starts = new int[len];
+        int[] ends = new int[len];
+        
+        for (int i = 0; i < len; i++) {
+            starts[i] = intervals[i].start;
+            ends[i] = intervals[i].end;
+        }
+        
+        Arrays.sort(starts);
+        Arrays.sort(ends);
+        
+        int result = 1;
+        int startPointer = 1;
+        int endPointer = 0;
+        while (startPointer < len) {
+            if (starts[startPointer] < ends[endPointer]) {
+                result++;
+            } else {
+                endPointer++;
+            }
+            startPointer++;
+        }
+        return result;
+    }
+}
+
+// Notes: two arrays for starts and ends
+// if start < end, result++, else end[i] -> end[i + 1]
+// TC: O(nlogn)  SC: O(n)
