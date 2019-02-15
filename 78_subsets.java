@@ -21,4 +21,4 @@ class Solution {
 }
 
 // Notes: backtracking, pay attention to the empty set []
-// TC: O(n!)   SC: O(n) - stack
+// TC: O(n*2^n)   SC: O(n*2^n) 
